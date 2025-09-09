@@ -1,0 +1,12 @@
+{
+  "name": "webflow-binotel-api",
+  "version": "1.0.0",
+  "description": "A serverless function to connect Webflow with Binotel API.",
+  "main": "api/create-customer.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
