@@ -19,7 +19,8 @@ export default async (req, res) => {
     const postData = new URLSearchParams();
     postData.append('key', BINOTEL_KEY);
     postData.append('secret', BINOTEL_SECRET);
-    postData.append('data', JSON.stringify(customerData));
+    postData.append('name', JSON.stringify(customerData.name));
+    postData.append('numbers', JSON.stringify(customerData.numbers));
 
     const response = await fetch(BINOTEL_API_URL, {
       method: 'POST',
