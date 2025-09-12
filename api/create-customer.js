@@ -16,17 +16,19 @@ export default async (req, res) => {
   try {
     const customerData = req.body;
 
-    const postData = new URLSearchParams();
-    postData.append('key', BINOTEL_KEY);
-    postData.append('secret', BINOTEL_SECRET);
-    postData.append('name', customerData.name);
-    postData.append('numbers', JSON.stringify(customerData.numbers));
+    const postData = {
+    key: BINOTEL_KEY,
+    secret: BINOTEL_SECRET,
+    name: customerData.name,
+    numbers: customerData.numbers,
+    description: customerData.description,
+};
 
     const response = await fetch(BINOTEL_API_URL, {
       method: 'POST',
-      body: postData,
+      body: JSON.stringify(postData),
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
       }
     });
 
